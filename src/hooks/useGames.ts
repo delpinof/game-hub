@@ -6,14 +6,15 @@ import {FetchResponse} from "../services/api-client.ts";
 const useGames = (gameQuery: GameQuery) => {
     return useQuery<FetchResponse<Game>, Error>({
         queryKey: ["games", gameQuery],
-        queryFn: () => gameService.get({
-            params: {
-                genres: gameQuery.genre?.id,
-                parent_platforms: gameQuery.platform?.id,
-                ordering: gameQuery.sortOrder,
-                search: gameQuery.searchText
-            }
-        }),
+        queryFn: () =>
+            gameService.getAll({
+                params: {
+                    genres: gameQuery.genre?.id,
+                    parent_platforms: gameQuery.platform?.id,
+                    ordering: gameQuery.sortOrder,
+                    search: gameQuery.searchText
+                }
+            }),
         staleTime: 6 * 60 * 60 * 1000,
     });
 };

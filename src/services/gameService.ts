@@ -1,4 +1,4 @@
-import ApiClient, {FetchResponse} from "./api-client.ts";
+import ApiClient from "./api-client.ts";
 import {Platform} from "./platformService.ts";
 
 
@@ -11,4 +11,4 @@ export interface Game {
     rating_top: number;
 }
 
-export default new ApiClient<FetchResponse<Game>>("/games")
+export default new ApiClient<Game>("/games")

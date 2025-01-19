@@ -1,4 +1,4 @@
-import ApiClient, {FetchResponse} from "./api-client.ts";
+import ApiClient from "./api-client.ts";
 
 export interface Genre {
     id: number;
@@ -9,4 +9,4 @@ export interface Genre {
 }
 
 
-export default new ApiClient<FetchResponse<Genre>>("/genres")
+export default new ApiClient<Genre>("/genres")
