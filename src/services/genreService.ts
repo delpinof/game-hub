@@ -1,5 +1,4 @@
-import ApiClient from "./api-client.ts";
-import {FetchResponse} from "../hooks/useData.ts"
+import ApiClient, {FetchResponse} from "./api-client.ts";
 
 export interface Genre {
     id: number;

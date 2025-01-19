@@ -1,7 +1,7 @@
 import {useQuery} from "@tanstack/react-query";
-import {FetchResponse} from "./useData.ts";
 import platformService, {Platform} from "../services/platformService.ts";
 import {CACHE_KEY_PLATFORMS} from "../constants.ts";
+import {FetchResponse} from "../services/api-client.ts";
 
 
 const usePlatforms = () =>
