@@ -12,18 +12,25 @@ interface Props {
 }
 
 const GameGrid = ({gameQuery}: Props) => {
-    const {data, isLoading, error, fetchNextPage, isFetchingNextPage, hasNextPage} = useGames(gameQuery);
+    const {
+        data,
+        //isLoading,
+        error,
+        fetchNextPage,
+        //isFetchingNextPage,
+        hasNextPage
+    } = useGames(gameQuery);
     const skeletons = [1, 2, 3, 4, 5, 6];
 
-    const fetchedGamesCount = data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
+    //const fetchedGamesCount = data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
 
-    console.log("My data count: ", data?.pages.length || 0);
-    console.log("Mosh data count: ", fetchedGamesCount);
+    //console.log("My data count: ", data?.pages.length || 0);
+    //console.log("Mosh data count: ", fetchedGamesCount);
 
     if (error) return <Text>{error.message}</Text>
     return (
         <InfiniteScroll
-            dataLength={data?.pages.length || 0} //This is important field to render the next data
+            dataLength={data?.pages.length || 0} // using my data count as is more concise than mosh and works fine
             next={fetchNextPage}
             hasMore={!!hasNextPage}
             loader={skeletons.map(skeleton =>
